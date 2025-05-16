@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metro ASIR</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background: #d32f2f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav {
+      background: #333;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      background: #444;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    section h2 {
+      color: #d32f2f;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    form label, form select, form button {
+      display: block;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    form button {
+      padding: 0.5rem 1rem;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #b71c1c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #f1f1f1;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+      }
+
+      header img {
+        margin: 0 0 0.5rem 0;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="metro-asir.png" alt="Logo Metro ASIR" />
+    <h1>Metro ASIR</h1>
+  </header>
+
+  <nav>
+    <a href="#mapas">Mapas</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#tarifas">Tarifas</a>
+    <a href="#trayectos">Trayectos</a>
+    <a href="#accesibilidad">Accesibilidad</a>
+  </nav>
+
+  <main>
+    <section id="mapas">
+      <h2>Mapas</h2>
+      <p>Consulta aquí los planos de la red de Metro ASIR.</p>
+    </section>
+
+    <section id="horarios">
+      <h2>Horarios</h2>
+      <p>Horarios de funcionamiento por líneas y estaciones.</p>
+    </section>
+
+    <section id="tarifas">
+      <h2>Tarifas</h2>
+      <p>Información detallada sobre precios y abonos.</p>
+    </section>
+
+    <section id="trayectos">
+      <h2>Cálculo de Trayectos</h2>
+      <form id="formulario">
+        <label for="origen">Origen:</label>
+        <select id="origen" name="origen"></select>
+
+        <label for="destino">Destino:</label>
+        <select id="destino" name="destino"></select>
+
+        <label>
+          <input type="checkbox" name="accesibilidad" value="si" />
+          Usar solo estaciones accesibles
+        </label>
+
+        <button type="submit">Calcular Ruta</button>
+      </form>
+
+      <div id="resultado" style="margin-top:1rem; font-weight:bold;"></div>
+    </section>
+
+    <section id="accesibilidad">
+      <h2>Accesibilidad</h2>
+      <p>Consulta estaciones accesibles y servicios especiales.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Metro ASIR. Proyecto TFG de Enrique Montalvo y Álvaro Garcia.
+  </footer>
+
+  <script>
+    const origenSelect = document.getElementById('origen');
+    const destinoSelect = document.getElementById('destino');
+    const accesibilidadCheckbox = document.querySelector('input[name="accesibilidad"]');
+
+    function cargarEstaciones(accesibles = false) {
+      const url = accesibles ? 'estaciones.php?accesibles=si' : 'estaciones.php';
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          origenSelect.innerHTML = '';
+          destinoSelect.innerHTML = '';
+          data.forEach(nombre => {
+            origenSelect.add(new Option(nombre, nombre));
+            destinoSelect.add(new Option(nombre, nombre));
+          });
+        })
+        .catch(err => {
+          console.error('Error al cargar estaciones:', err);
+        });
+    }
+
+    // Cargar todas las estaciones al cargar la página
+    cargarEstaciones(false);
+
+    // Recargar estaciones si se marca/desmarca accesibilidad
+    accesibilidadCheckbox.addEventListener('change', function () {
+      cargarEstaciones(this.checked);
+    });
+
+    // Manejar envío del formulario
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      fetch('ruta_dijkstra.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        const div = document.getElementById('resultado');
+        if (data.error) {
+          div.textContent = 'Error: ' + data.error;
+        } else {
+          div.innerHTML = `
+            Ruta: ${data.camino.join(' → ')}<br>
+            Tiempo estimado: ${data.tiempo} minutos
+          `;
+        }
+      })
+      .catch(err => {
+        document.getElementById('resultado').textContent = 'Error en la solicitud.';
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>
