@@ -1,6 +1,7 @@
 # MetroASIR – Aplicación web para el cálculo de rutas en el Metro de Madrid
 
 Este proyecto forma parte del Trabajo Fin de Ciclo del CFGS Administración de Sistemas Informáticos en Red (ASIR). Su objetivo es ofrecer una aplicación web funcional que permita calcular rutas entre estaciones del Metro de Madrid, teniendo en cuenta criterios de accesibilidad.
+Realizado por Enrique Montalvo Mejías y Álvaro García Ginarte.
 
 ## 📁 Estructura del proyecto
 
