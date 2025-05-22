@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horarios - Metro ASIR</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d32f2f;
+      color: white;
+      padding: 1rem;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav {
+      background: #333;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      background: #444;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #d32f2f;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .mensaje {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #f1f1f1;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="metro-asir.png" alt="Logo Metro ASIR" />
+    <h1>Metro ASIR</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="mapa.html">Mapas</a>
+    <a href="horarios.html">Horarios</a>
+    <a href="tarifas.html">Tarifas</a>
+    <a href="accesibilidad.html">Accesibilidad</a>
+  </nav>
+
+  <main>
+    <h2>🕓 Horarios de Servicio</h2>
+
+    <h3>Horario General del Metro</h3>
+    <table>
+      <tr><th>Día</th><th>Apertura</th><th>Cierre</th></tr>
+      <tr><td>Lunes a Jueves</td><td>6:00</td><td>1:30</td></tr>
+      <tr><td>Viernes y vísperas de festivo</td><td>6:00</td><td>2:00</td></tr>
+      <tr><td>Sábados</td><td>6:00</td><td>2:00</td></tr>
+      <tr><td>Domingos y festivos</td><td>6:30</td><td>1:30</td></tr>
+    </table>
+
+    <h3>Frecuencia Media de Trenes</h3>
+    <table>
+      <tr><th>Franja horaria</th><th>Frecuencia estimada</th></tr>
+      <tr><td>Hora punta (7:00 - 9:00 / 18:00 - 20:00)</td><td>3-5 min</td></tr>
+      <tr><td>Horas valle (9:00 - 18:00)</td><td>5-8 min</td></tr>
+      <tr><td>Noche (después de las 22:00)</td><td>8-15 min</td></tr>
+    </table>
+
+    <p class="mensaje">🔧 Información en desarrollo. Se añadirán horarios específicos por línea próximamente.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Metro ASIR. Proyecto TFG de Enrique Montalvo y Álvaro Garcia.
+  </footer>
+
+</body>
+</html>

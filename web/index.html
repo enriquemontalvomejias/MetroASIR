@@ -39,6 +39,7 @@
       background: #333;
       overflow-x: auto;
       white-space: nowrap;
+      text-align: center;
     }
 
     nav a {
@@ -71,6 +72,21 @@
       color: #d32f2f;
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #d32f2f;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #b71c1c;
     }
 
     form label, form select, form button {
@@ -118,33 +134,42 @@
   </style>
 </head>
 <body>
+
   <header>
     <img src="metro-asir.png" alt="Logo Metro ASIR" />
     <h1>Metro ASIR</h1>
   </header>
 
   <nav>
-    <a href="#mapas">Mapas</a>
-    <a href="#horarios">Horarios</a>
-    <a href="#tarifas">Tarifas</a>
+    <a href="mapa.html">Mapas</a>
+    <a href="horarios.html">Horarios</a>
+    <a href="tarifas.html">Tarifas</a>
     <a href="#trayectos">Trayectos</a>
-    <a href="#accesibilidad">Accesibilidad</a>
+    <a href="accesibilidad.html">Accesibilidad</a>
   </nav>
 
   <main>
-    <section id="mapas">
+    <section>
+      <h2>Bienvenido a Metro ASIR</h2>
+      <p>Consulta información útil sobre la red de Metro: mapas, horarios, precios, accesibilidad y cálculo de trayectos. Todo desde una única plataforma.</p>
+    </section>
+
+    <section>
       <h2>Mapas</h2>
       <p>Consulta aquí los planos de la red de Metro ASIR.</p>
+      <a href="mapa.html" class="btn">Ver mapas</a>
     </section>
 
-    <section id="horarios">
+    <section>
       <h2>Horarios</h2>
       <p>Horarios de funcionamiento por líneas y estaciones.</p>
+      <a href="horarios.html" class="btn">Ver horarios</a>
     </section>
 
-    <section id="tarifas">
+    <section>
       <h2>Tarifas</h2>
       <p>Información detallada sobre precios y abonos.</p>
+      <a href="tarifas.html" class="btn">Ver tarifas</a>
     </section>
 
     <section id="trayectos">
@@ -167,9 +192,10 @@
       <div id="resultado" style="margin-top:1rem; font-weight:bold;"></div>
     </section>
 
-    <section id="accesibilidad">
+    <section>
       <h2>Accesibilidad</h2>
       <p>Consulta estaciones accesibles y servicios especiales.</p>
+      <a href="accesibilidad.html" class="btn">Ver accesibilidad</a>
     </section>
   </main>
 
@@ -199,15 +225,12 @@
         });
     }
 
-    // Cargar todas las estaciones al cargar la página
     cargarEstaciones(false);
 
-    // Recargar estaciones si se marca/desmarca accesibilidad
     accesibilidadCheckbox.addEventListener('change', function () {
       cargarEstaciones(this.checked);
     });
 
-    // Manejar envío del formulario
     document.getElementById('formulario').addEventListener('submit', function (e) {
       e.preventDefault();
       const formData = new FormData(this);

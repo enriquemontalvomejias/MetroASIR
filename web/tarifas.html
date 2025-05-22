@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tarifas - Metro ASIR</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d32f2f;
+      color: white;
+      padding: 1rem;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav {
+      background: #333;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      background: #444;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #d32f2f;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .mensaje {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #f1f1f1;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="metro-asir.png" alt="Logo Metro ASIR" />
+    <h1>Metro ASIR</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="mapa.html">Mapas</a>
+    <a href="horarios.html">Horarios</a>
+    <a href="tarifas.html">Tarifas</a>
+    <a href="accesibilidad.html">Accesibilidad</a>
+  </nav>
+
+  <main>
+    <h2>🎫 Tarifas de Transporte Público</h2>
+
+    <h3>Billetes Sencillos y 10 Viajes</h3>
+    <table>
+      <tr><th>Tipo</th><th>Precio (€)</th></tr>
+      <tr><td>Billete Sencillo (Metro)</td><td>1,50 – 2,00</td></tr>
+      <tr><td>Billete 10 viajes (Metrobús)</td><td>12,20</td></tr>
+    </table>
+
+    <h3>Abonos Mensuales</h3>
+    <table>
+      <tr><th>Tipo de Abono</th><th>Zonas</th><th>Precio (€)</th></tr>
+      <tr><td>Joven</td><td>Todas</td><td>8,00</td></tr>
+      <tr><td>Normal</td><td>Zona A</td><td>21,80</td></tr>
+      <tr><td>Normal</td><td>Zona B1</td><td>25,40</td></tr>
+      <tr><td>Normal</td><td>Zona B2</td><td>28,80</td></tr>
+      <tr><td>Normal</td><td>B3/C1/C2</td><td>32,80</td></tr>
+    </table>
+
+    <h3>Abonos Turísticos</h3>
+    <table>
+      <tr><th>Duración</th><th>Zona A (€)</th><th>Zona T (€)</th></tr>
+      <tr><td>1 día</td><td>8,40</td><td>17,00</td></tr>
+      <tr><td>2 días</td><td>14,20</td><td>28,40</td></tr>
+      <tr><td>3 días</td><td>18,40</td><td>35,40</td></tr>
+      <tr><td>4 días</td><td>22,60</td><td>43,00</td></tr>
+      <tr><td>5 días</td><td>26,80</td><td>50,80</td></tr>
+      <tr><td>7 días</td><td>35,40</td><td>70,80</td></tr>
+    </table>
+
+    <h3>Descuentos Especiales</h3>
+    <table>
+      <tr><th>Beneficiario</th><th>Descuento</th></tr>
+      <tr><td>Familia Numerosa General</td><td>20%</td></tr>
+      <tr><td>Familia Numerosa Especial</td><td>50%</td></tr>
+      <tr><td>Discapacidad ≥65%</td><td>20%</td></tr>
+      <tr><td>Mayores de 65 años</td><td>Gratuito</td></tr>
+      <tr><td>Niños de 4 a 6 años</td><td>Gratuito</td></tr>
+    </table>
+
+    <p class="mensaje">💡 Precios válidos hasta junio de 2025 con rebajas del 60% aplicadas por el CRTM.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Metro ASIR. Proyecto TFG de Enrique Montalvo y Álvaro Garcia.
+  </footer>
+
+</body>
+</html>
